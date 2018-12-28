@@ -1,0 +1,12 @@
+@charset "utf-8";
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,dd{margin: 0;padding: 0;}
+ul,ol{list-style: none;}
+img{border: none;vertical-align: top;}
+a{text-decoration: none;}
+/*选择性的*/
+em,i{font-style: normal;}
+/*公用的*/
+.clear-fix:after{content: "";display: block;clear: both;}
+.clear-fix{zoom: 1;}
+.fl{float: left;}
+.fr{float: right;}

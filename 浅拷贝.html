@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       var obj1={
+           name:"李磊",
+           age:19,
+           hobby:["打篮球","学习","写代码","玩手机"]
+       }
+        var obj2={};
+        function extend(a,b) {
+            for (var key in a){
+                b[key]= a[key];
+            }
+        }
+        extend(obj1,obj2);
+        console.log(obj2);
+        console.log(obj1);
+    </script>
+    <script>
+        //深拷贝
+        var obj3={
+            age:20,
+            sex:"女",
+            hobby:["打篮球","学习","写代码","玩手机"],
+            animal:{
+                dog:"吉娃娃",
+                sex:"男",
+                age:2
+            }
+        };
+        var obj4={};
+        function extendes(c,d) {
+            for(var key in c) {
+                var temp = c [key];
+                if (temp instanceof Array) {
+                    d[key] = [];
+                    extendes(temp, d[key]);
+                } else if (temp instanceof Object) {
+                    d[key] = {};
+                    extendes(temp, d[key]);
+                } else {
+                    d[key] = temp;
+                }
+            }
+        };
+        extendes(obj3,obj4);
+        console.log(obj3);
+        console.log(obj4);
+        var reg=/\d{5}/;
+        var flag=reg.test("你是谁：12324");
+        console.log(flag);
+        //缩小为一行
+        console.log(/\d[a-zA-Z]/.test("hello"));
+
+    </script>
+
+<!--正则 表达式15位和18位的表达式：（[1-9][0-9]{14}）（[0-9][0-9xX]{2}）？-->
+
+</body>
+</html>

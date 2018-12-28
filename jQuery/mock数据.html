@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+    <script src="http://mockjs.com/dist/mock.js"></script>
+</head>
+<body>
+
+<script>
+    //模拟后台
+    /*Mock.mock('http://api.com',{
+        'user|5-10':[{
+            'name':'@cname',
+            'age|1-100':100,
+            'birthday':'@date("yyyy-mm-dd")',
+            'city':'@city(true)'
+        }]
+    });*/
+    Mock.mock('http://laoyang.com',{
+        'user|5-10':[{
+            'name':'@cname',
+            'age|1-100':60,
+            'birthday':'@date("yyyy-mm-dd")',
+            'city':'@city(true)'
+        }]
+    });
+    //jQuery方式
+    /*$.ajax({
+        url:'http://api.com',
+        dataType:'json'
+    }).done(function (data,status,xhr) {
+        console.log(JSON.stringify(data,null,4));
+    });*/
+    //原生ajax方式
+    /*function myAjax(url) {
+        if (window.XMLHttpRequest){
+            var xhr = new XMLHttpRequest();
+        }else if (window.ActiveXObject){
+            try{
+               var xhr = new ActiveXObject('Msxml2.XMLHTTP');
+            }catch (e){
+                try {
+                    var xhr = ActiveXObject('Microsoft.XMLHTTP');
+                }catch (e){
+
+                };
+            }
+        }
+        xhr.open('GET',url, true);
+        xhr.send(null);
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState == 4 && xhr.status ==200){
+                console.log(xhr.responseText);
+            }
+        }
+    }
+    myAjax('http://api.com')*/
+
+</script>
+</body>
+</html>

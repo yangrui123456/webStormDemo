@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+    //    //求各个位数上的和
+    //    function getEverySum(x) {
+    //        if (x<10){
+    //            return x;
+    //        }
+    //        return x%10+getEverySum(parseInt(x/10));
+    //    }
+    //    console.log(getEverySum(123567));
+    //斐波那契数列
+    //    function getFib(x) {
+    //        if (x ==1 | x ==2){
+    //            return 1;
+    //        }
+    //        return getFib(x-1) +getFib(x-2);
+    //    }
+    //    console.log(getFib(12));
+    //遍历Dom树
+    var root = document.documentElement;
+    function forDom(root, fn) {
+        fn(root);
+    }
+    forDom(root, function (node) {
+        console.log(node.nodeName);
+    })
+    //节点：nodeName nodeType nodeValue
+
+</script>
+</body>
+</html>

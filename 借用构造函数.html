@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function Person(name,age,sex,weight) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.weight = weight;
+    }
+    Person.prototype.sayHi= function () {
+        console.log("您好");
+    }
+
+    function Student(name,age,sex,weight,score) {
+        //借用构造函数 属性被继承
+        Person.call(this,name,age,sex,weight);
+        this.score= score;
+    }
+    /*方法被继承*/
+    Student.prototype= new Person();
+    Student.prototype.eat = function () {
+        console.log("吃零食");
+    }
+    var stu = new Student("李磊",13,"男","48kg","120分");
+    stu.sayHi();
+    stu.eat();
+    console.log(stu.name,stu.age,stu.sex,stu.weight,stu.score);
+</script>
+</body>
+</html>

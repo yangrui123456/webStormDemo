@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+请输入邮箱地址：<input type="text" value="" id="email" /> <br/>
+<script>
+    //验证邮箱
+    document.getElementById("email").onblur = function () {
+        var reg= /^[0-9a-zA-z_.-]+[@][0-9a-zA-z_.-]+([.][1-9a-zA-z_.-]+){2,3}$/;
+        if (reg.test(this.value)){
+            this.style.backgroundColor ="green";
+        }else {
+            this.style.backgroundColor ="red";
+        }
+    };
+    var year = 2000;
+    if (year%4==0&&year%100==0 ||year%400==0){
+        console.log(year+"是闰年");
+    }else {
+        console.log(year+"是平年");
+    }
+    var month=parseInt(prompt("请输入月份"));
+    switch (month){
+        case 1:
+        case 2:
+        case 3:
+        case 4:console.log("有30天");break;
+        case 4:
+        case 6:
+        case 7:
+        case 8:console.log("有30天");break;
+    }
+    var i = 0;
+    while (i<10){
+        console.log("哈哈哈，又是励志的一天"+(i+1));
+        i++;
+    }
+    var sum = 0;
+    var j = 0 ;
+    while( j<=100){
+//        sum = sum+j;
+        sum+=j;
+        j++;
+    }
+    console.log(sum);
+
+</script>
+<script>
+    //求6的阶乘；
+    var ji =1;
+    var jj=1;
+    while(jj<=6){
+        jj*=ji;
+        jj++;
+    }
+    console.log(ji);
+    //1到100之间偶数的和
+    var sum=0;
+    var i=1;
+    while (i<=100){
+        if (i%2==0){
+            sum+=i;
+        }
+        i++;
+    }
+    console.log("和为"+sum);
+    //求1-100所以奇数的和
+    var sum2 =0;
+    var i2 =1;
+    while (i2<=100){
+        if (i2%2!=0){
+            sum2+=i2
+        }
+        i2++;
+    }
+    console.log("奇数和为："+sum2);
+    //乘法口诀
+    for (var i3=1;i3<=9;i3++){
+        for (var j=1;j<=i3;j++){
+            document.write(i3+"*"+j+ "=" +i3*j+"&nbsp"+"&nbsp");
+        }
+        document.write("<br/>");
+    }
+
+
+</script>
+</body>
+</html>

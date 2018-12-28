@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- PC端使用 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <title>背景视差,元素动画</title>
+    <link rel="stylesheet" href="css/base.css" media="all"/>
+    <link rel="stylesheet" href="css/index.css" media="all"/>
+    <link rel="stylesheet" href="css/jquery.fullPage.css" media="all"/>
+
+</head>
+
+<body>
+<div class="wrap">
+    <div id="fullpage">
+        <!-- 第一屏 -->
+        <div class="section d1">
+            <div class="bg">
+                <img src="images/01-index.png" alt=""></div>
+            <div class="bg11"></div>
+            <div class="bg12"></div>
+            <div class="bg13"></div>
+            <h2 class="hgroup">一，星辰</h2>
+            <div class="star star1"></div>
+            <div class="star star2"></div>
+            <div class="star star3"></div>
+        </div>
+        <!-- 第二屏 -->
+        <div class="section d2">
+            <div class="bg">
+                <img src="images/02.jpg" alt="">
+            </div>
+            <div class="bg21"></div>
+            <div class="bg22"></div>
+            <h2 class="d2-text">二，花木</h2>
+            <div class="go-down"><img src="images/common-next.png" alt=""></div>
+        </div>
+        <!-- 第三屏 -->
+        <div class="section d3">
+            <div class="slide">
+                <h2>三</h2>
+                <!-- 晃动小圈 -->
+                <div class="steps">
+                    <div class="step_1 step animated">晃动</div>
+                    <div class="step_2 step animated">抖动</div>
+                    <div class="step_3 step animated">缩放</div>
+                </div>
+            </div>
+            <div class="slide">第三屏的第二屏</div>
+            <div class="slide">第三屏的第三屏</div>
+            <div class="slide">第三屏的第四屏</div>
+        </div>
+        <!-- 第四屏 -->
+        <div class="section d4">
+            <div class="bg">
+                <img src="images/bg11.jpg" alt="">
+            </div>
+            <div class="clouds">
+                <img src="images/cloud1.png" alt="">
+            </div>
+            <img src="images/fly.png" alt="飞行的巫婆" class="wupo">
+        </div>
+        <!-- 第五屏 -->
+        <div class="section">
+            <h2 class="div-end">第四屏:谢谢欣赏！</h2>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

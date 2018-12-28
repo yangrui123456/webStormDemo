@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+    <input v-model="message">
+    </div>
+    <div id="app2">
+        <div v-html="content"></div>   <!-- v-text不会转义-->
+    </div>
+    <div id="app3">
+        <button v-on:click="handleClick">{{msg}}</button>  <!--点击改变数据-->
+    </div>
+    <div id="app4" v-bind:title="title">{{meg}}</div><!--出现悬框-->
+    <div id="app5" >
+
+        <input v-model="content">
+        <div>{{content}}</div>
+    </div>
+    <div id="root">
+        姓：<input v-model="firstName">
+        名：<input v-model="lastName">
+        <div>{{fullName}}</div>
+        <div>{{count}}</div>
+    </div>
+    <div id="shows">
+        <div v-if="show">你试试</div> <!--点击显示隐藏-->
+        <button @click="handleClick">{{toggle}}</button>
+        <ul>
+            <li v-for="(item,index) of list" :key="index">{{item}}</li>
+        </ul>
+    </div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        template:'<p>{{message}}</p>',
+        data:{
+            message:'Hello World'
+        }
+    })
+    new Vue({
+        el:'#app2',
+        data:{
+            content:'<h3>你好啊</h3>'
+        }
+    })
+    new Vue({
+        el:'#app3',
+        data:{
+            msg:'你好啊'
+        },
+        methods:{
+            handleClick:function () {
+                alert("123")
+                this.msg = "你也好啊"
+            }
+        }
+    })
+    new Vue({
+        el:'#app4',
+        data:{
+            meg:'去你的',
+            title:'呵呵呵'
+        }
+    })
+    new Vue({
+        el:'#app5',
+        data:{
+            title:'我是一只小青蛙',
+            content:'hahahaha'
+        }
+    })
+    new Vue({
+        el:'#root',
+        data:{
+            firstName:'',
+            lastName:'',
+            count:0
+        },
+        computed:{
+            fullName:function () {
+                return this.firstName+' '+this.lastName
+            }
+        },
+        watch:{
+            fullName:function () {
+                this.count++
+            }
+        }
+    })
+    new Vue({
+        el:'#shows',
+        data:{
+            toggle:'点击我',
+            show:true,
+            list:[1,2,3,1]
+        },
+        methods:{
+            handleClick:function () {
+                this.show = !this.show
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

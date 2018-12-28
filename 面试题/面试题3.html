@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<input type="button" id="btn" value="按钮">
+    <script>
+//        使用原生js给一个按钮绑定多个onclick事件
+        var btn =document.getElementById("btn");
+        var btn1 =document.getElementById("btn1");
+        btn.addEventListener("click",hello1);
+        btn.addEventListener("click",hello2);
+        function hello1() {
+            alert("哈哈");
+        }
+        function hello2() {
+            alert("呵呵");
+        }
+    </script>
+</body>
+</html>

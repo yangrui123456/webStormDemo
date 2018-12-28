@@ -1,0 +1,345 @@
+.wrap {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.section {
+    position: relative;
+    overflow: hidden;
+}
+
+.section .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.section .bg img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+/* 第一屏 */
+.bg11 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 850px;
+    background: url(../images/bg11.png) 50% 0 no-repeat;
+    transition: all 1s;
+}
+.bg12 {
+    position: absolute;
+    bottom: -392px;
+    bottom: 90px\0;
+    width: 100%;
+    height: 392px;
+    background: url(../images/bg12.png) 50% 0 no-repeat;
+    transition: all 1.7s;
+    opacity: 0;
+}
+.active .bg12 {
+    bottom: 90px;
+    transition-delay: .7s;
+    opacity: 1;
+}
+.bg13 {
+    position: absolute;
+    bottom: -377px;
+    width: 100%;
+    height: 377px;
+    background: url(../images/bg13.png) 50% 0 no-repeat;
+    transition: all 1s;
+}
+.active .bg13 {
+    bottom: 0;
+    transition-delay: .7s;
+}
+/*文字内容放大效果*/
+.hgroup {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    width: 554px;
+    height: 176px;
+    margin: 0 0 0 -277px;
+    font-size: 100px;
+    transition: all 1s;
+    -webkit-transform: scale(.5, .5);
+    transform: scale(.5, .5);
+    color: #000;
+    text-align: center;
+    opacity: 0;
+}
+.active .hgroup {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    transition-delay: 0.7s;
+}
+/* 小星星 */
+.star{
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background: url(../images/star.png);
+    animation: scale 1s linear infinite;
+    -webkit-animation: scale 1s linear infinite;
+}
+.star1{
+    top: 30%;
+    left: 20%;
+}
+.star2{
+    top: 20%;
+    left: 50%;
+}
+.star3{
+    top: 30%;
+    left: 70%;
+}
+/* 第一屏 end */
+/* 第二屏 start */
+.d2-text{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    width: 400px;
+    height: 200px;
+    margin: 0 0 0 -200px;
+    margin-top: -400px;
+    color: green;
+    font-size: 100px;
+    transition: all 1s;
+    text-align: center;
+}
+.active .d2-text{
+    margin-top: 0;
+    transition-delay: 0.7s;
+}
+.bg21{
+    position: absolute;
+    left: 0;
+    bottom: 15%;
+    width: 100%;
+    height: 372px;
+    background: url(../images/bg21.png) 50% 0 no-repeat;
+    transition: all 2s;
+    left: -100%;
+}
+.active .bg21{
+    left: 0;
+    transition-delay: 0.7s;
+}
+.bg22{
+    position: absolute;
+    right: 0;
+    bottom: 15%;
+    width: 100%;
+    height: 449px;
+    background: url(../images/bg22.png) 50% 0 no-repeat;
+    transition: all 2s;
+    right: -100%;
+}
+.active .bg22{
+    right: 0;
+    transition-delay: 0.7s;
+}
+.go-down{
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    width: 100px;
+    margin-left: -50px;
+}
+/* 第二屏 end */
+/* 第三屏 */
+.slide{
+    position: relative;
+}
+/* 小圆圈逛动、抖动、缩放效果 */
+.steps {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 520px;
+    height: 500px;
+    font-size: 18px;
+    font-family: "Microsoft Yahei";
+    font-weight: bold;
+    margin-right: 90px;
+}
+.step {
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 100px;
+    background-color: #B56394;
+    border: 5px solid yellow;
+    text-align: center;
+}
+.step1:hover, .step3:hover{
+    background-color: yellow;
+    border: 5px solid #B56394;
+}
+.step_1{
+    left: 0;
+}
+.step_2{
+    left: 280px;
+    /*重置*/
+    width: 207px;
+    background: none;
+    border: 0;
+    background: url(http://gtms03.alicdn.com/tps/i3/T1kLrmFDXfXXXDKDIh-207-198.png)
+}
+
+.step_3{
+    left: 560px;
+}
+@keyframes swing{
+    20%{-webkit-transform:rotate(15deg);-ms-transform:rotate(15deg);transform:rotate(15deg);}
+    40%{-webkit-transform:rotate(-10deg);-ms-transform:rotate(-10deg);transform:rotate(-10deg);}
+    60%{-webkit-transform:rotate(5deg);-ms-transform:rotate(5deg);transform:rotate(5deg);}
+    80%{-webkit-transform:rotate(-5deg);-ms-transform:rotate(-5deg);transform:rotate(-5deg);}
+    100%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}
+}
+@-webkit-keyframes swing{
+    20%{-webkit-transform:rotate(15deg);-ms-transform:rotate(15deg);transform:rotate(15deg);}
+    40%{-webkit-transform:rotate(-10deg);-ms-transform:rotate(-10deg);transform:rotate(-10deg);}
+    60%{-webkit-transform:rotate(5deg);-ms-transform:rotate(5deg);transform:rotate(5deg);}
+    80%{-webkit-transform:rotate(-5deg);-ms-transform:rotate(-5deg);transform:rotate(-5deg);}
+    100%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}
+}
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+/* step_1通过JS添加hover */
+.swing{
+    -webkit-transform-origin:top center;-ms-transform-origin:top center;transform-origin:top center;
+    -webkit-animation-name:swing;animation-name:swing;
+}
+/* 小圆圈逛动效果 end */
+
+/* step_2通过CSS添加hover */
+/* 抖动效果 */
+.step_2:hover{
+    -webkit-transform-origin:center center;-ms-transform-origin:center center;transform-origin:center center;
+    -webkit-animation-name:swing;animation-name:swing;
+}
+/* step_3 缩放效果 */
+.step_3:hover{
+    animation: scale 1s;
+    -webkit-animation: scale 1s;
+}
+
+@keyframes scale{
+    25%{-webkit-transform: scale(1.2, 1.2);transform: scale(1.2, 1.2);}
+    75%{-webkit-transform: scale(.5, .5);transform: scale(.5, .5);}
+    100%{-webkit-transform: scale(1, 1);transform: scale(1, .5);}
+}
+@-webkit-keyframes scale{
+    25%{-webkit-transform: scale(1.2, 1.2);transform: scale(1.2, 1.2);}
+    75%{-webkit-transform: scale(.5, .5);transform: scale(.5, .5);}
+    100%{-webkit-transform: scale(1, 1);transform: scale(1, 1);}
+}
+
+
+/* 第三屏 end */
+
+/* 第四屏 */
+/*背景*/
+
+/*白云朵朵*/
+.clouds{
+    position: absolute;
+    left: 0;
+    top: 20px;
+}
+.active .clouds{
+    animation:clouds 20s infinite alternate;
+    -webkit-animation:clouds 20s linear infinite alternate; /* Safari 和 Chrome */
+}
+@keyframes clouds
+{
+    from {left: 0;}
+    to {left:100%;}
+}
+
+@-webkit-keyframes clouds /* Safari and Chrome */
+{
+    from {left: 0;}
+    to {left:100%;}
+}
+/*巫婆飞*/
+.wupo{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 0px;
+    left: -100px;
+}
+.active .wupo{
+    animation:fly 8s infinite;
+    -webkit-animation:fly 8s linear infinite; /* Safari 和 Chrome */
+}
+@keyframes fly
+{
+    from {left: -100px;}
+    to {left:100%;
+        bottom: 100%;
+    }
+}
+
+@-webkit-keyframes fly /* Safari and Chrome */
+{
+    from {left:-100px;}
+    to {
+        left:100%;}
+}
+/* 巫婆飞结束 */
+/* 最后一屏 */
+.div-end{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 500px;
+    height: 100px;
+    font-size: 50px;
+    color: green;
+    transition: all 2.7s;
+    opacity: 0;
+}
+
+.active .div-end{
+    bottom: 70%;
+    left: 40%;
+    transition-delay: .7s;
+    opacity: 1;
+}
+
+
+/* 右侧导航 */
+#fp-nav { _display: none; font-size: 12px;}
+#fp-nav li { width: 90px; height: 21px; margin: 10px 0 0; vertical-align: middle;}
+#fp-nav li a {
+    float: right;
+    width: 21px;
+    height: 21px;
+    color: #8F9DA4;
+    text-decoration: none;
+    text-align: right;
+    background-color: #8F9DA4;
+    border-radius: 10px;
+}
+#fp-nav li .active { background-position: 0 bottom;}
+#fp-nav span { display: none;}
+/* 右侧导航  end */

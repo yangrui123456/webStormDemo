@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #Img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+        }
+        #Main{
+           /* background: url("img/section2.jpg") no-repeat;*/
+            background-color: #fff;
+            width:100%;
+            height: 550px;
+        }
+    </style>
+</head>
+<body>
+<div id="Main">
+    <img id="Img" src="img/fly.jpg" />
+</div>
+<script>
+   /* window.onload =Main;
+    //全局坐标变量
+    var x = "";
+    var y = "";
+    function GetMouse(oEvent) {
+        x = oEvent.clientX;
+        y = oEvent.clientY;
+        document.getElementById("Img").style.left=(parseInt(x)-100)+"px";
+        document.getElementById("Img").style.top=y+"px";
+    }
+  function Main()
+    {
+            var ele=document.getElementById("Main");
+            //注册鼠标移动事件
+            ele.onmousemove=function(){GetMouse(event);}
+            // 注册鼠标按下事件
+           /!* ele.onmousedown=function(){ChangeBg("Img","MUp.png");}
+            //注册鼠标弹回事件
+            ele.onmouseup=function(){ChangeBg("Img","MDown.png");}*!/
+    }*/
+       //图片变化
+      /* function ChangeBg(id,url){
+        document.getElementById(id).src=url;*/
+   var x = "";
+   var y = "";
+   function GetMouse(oEvent) {
+       x = oEvent.clientX;
+       y = oEvent.clientY;
+       document.getElementById("Img").style.left=(parseInt(x)-100)+"px";
+       document.getElementById("Img").style.top=y+"px";
+   }
+function Main()
+   {
+       var ele=document.getElementById("Main");
+       ele.onmousemove=function(){GetMouse(event)};
+
+   function init() {
+       document.addEventListener('mousemove', mousemove);
+       setInterval(loop, 1000/fps);
+   }
+
+   function loop() {
+           setTimeout(transform, params );
+   }
+
+
+   function transform(params) {
+       params.part.x = definemaxspeed(params.mouse.x - params.part.x ) / easy + params.part.x ;
+       params.part.y = definemaxspeed(params.mouse.y - params.part.y ) / easy + params.part.y ;
+   }
+
+   function definemaxspeed(speed) {
+       if (speed > 0 && speed > maxspeed) return maxspeed;
+       if (speed < 0 && speed < -maxspeed) return -maxspeed;
+       return speed;
+   }
+   }
+</script>
+</body>
+</html>

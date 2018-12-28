@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<ul>
+    <li><a href="">123</a></li>
+    <li><a href="">123</a></li>
+    <li><a href="">123</a></li>
+    <li><a href="">123</a></li>
+    <li><a href="">123</a></li>
+</ul>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        $("a").click(function () {
+            console.log($(this).index());
+        });
+        $("a").css({
+           backgroundColor:"pink",
+            color:"black",
+            border:"1px solid yellow"
+        });
+    });
+
+</script>
+</body>
+</html>

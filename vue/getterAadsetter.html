@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        .activated{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app1">
+    <div v-for="(item,key,index) of userInfo" >{{item}}-{{key}}--{{index}}</div>
+</div>
+<script>
+    var app1 = new Vue({
+        el:'#app1',
+        data:{
+           userInfo:{
+               name:'liyang',
+               age:20,
+               address:'beijing'
+           }
+
+        }
+    })
+</script>
+<!--<div id="app1">
+    <div v-for="(item,index) of list" :key="item.id">{{item.text}}&#45;&#45;{{index}}</div>
+</div>
+<script>
+    var app1 = new Vue({
+       el:'#app1',
+        data:{
+            list:[{
+                id:'2992929',
+                text:'hello'
+            },{
+                id:'222299',
+                text:'你好啊'
+            },{
+                id:'44000',
+                text:'我很好啊'
+            }
+            ]
+        }
+    })
+</script>-->
+<!--<div id="root">
+    <div :style="styleObj" @click="handleDivClick">hello world</div>
+</div>
+<script>
+    var root = new Vue({
+        el:'#root',
+        data:{
+            styleObj:{
+                color:'black'
+            }
+        },
+        methods:{
+            handleDivClick:function () {
+                if (this.styleObj.color === 'black'){
+                    this.styleObj.color = 'red';
+                }else {
+                    this.styleObj.color = 'black';
+                }
+                /*三元表达式*/
+                /*this.styleObj.color = this.styleObj.color ==='black'?'red':'black';*/
+            }
+        }
+    })
+</script>-->
+<!--<div id="root">
+    <div @click="handleClick"
+         :class="[activated]">hello world</div>
+</div>
+<script>
+    var root = new Vue({
+        el:'#root',
+        data:{
+            activated:''
+        },
+        methods:{
+            handleClick:function () {
+                this.activated = this.activated === 'activated'?'':'activated';
+            }
+        }
+    })
+</script>-->
+<!--<div id="root">
+    <div @click="handleClick"
+         :class="{activated: isActivated}">hello world</div>
+</div>
+<script>
+    var root = new Vue({
+        el:'#root',
+        data:{
+            isActivated:false
+        },
+        methods:{
+            handleClick:function () {
+                this.isActivated = !this.isActivated;
+            }
+        }
+    })
+</script>-->
+<!--<div id="app">{{fullName}}</div>
+<script>
+  var vm =   new Vue({
+        el:'#app',
+        data:{
+            firstName:'yang',
+            lastName:'rui'
+        },
+    computed:{
+        fullName:{
+            get: function () {
+              return  this.firstName+" "+this.lastName;
+            },
+            set: function (value) {
+                var arr = value.split(" ");
+                this.firstName = arr[0];
+                this.lastName = arr[1];
+            }
+        }
+    }
+
+    })
+
+</script>-->
+</body>
+</html>

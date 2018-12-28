@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            position: absolute;
+        }
+       .box2{
+           margin-top: 150px;
+           background-color: yellow;
+          }
+        .box3{
+            margin-top: 300px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="开始">
+<input type="button" value="结束">
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+        $(function () {
+            $("input").eq(0).click(function () {
+                        $(".box1").animate({left:800},1000)
+                    });
+            //swing秋千 摇摆
+            $("input").eq(0).click(function () {
+                $(".box2").animate({left:800},1000,"swing")
+            });
+            //linear 匀速
+            $("input").eq(0).click(function () {
+                $(".box3").animate({left:800},1000,"linear")
+
+            });
+        });
+
+</script>
+</body>
+</html>

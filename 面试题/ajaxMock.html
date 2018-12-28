@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://mockjs.com/dist/mock.js"></script>
+</head>
+<body>
+    <script>
+        Mock.mock('http://laoyang',{
+            'errorcode':0,
+            'message':'xx信息不完整',
+        });
+        //使用Ajax进行测试
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("get","http://laoyang",true);
+        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlhttp.send(null);
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4){
+                if (xmlhttp.status >= 200 && xmlhttp.status<300 ||xmlhttp.status ==304){
+                    var data = JSON.parse(xmlhttp.responseText);
+                    console.log(data);
+
+            }else{
+                alert("Request was unsuccessful:"+xmlhttp.status);
+            }
+        }
+        }
+    </script>
+</body>
+</html>

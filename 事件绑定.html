@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var btn = document.getElementById('btn');
+    if (this.className ==lock){
+        this.className ='unlock';
+        this.innerHTML ="锁定";
+    }else {
+        this.className ="lock";
+        this.innerHTML = "解锁";
+    }
+    if (this.innerHTML =="解锁"){
+        this.className ='lock';
+        this.innerHTML = '锁定';
+    }else{
+        this.className = 'unlock';
+        this.innerHTML ='解锁';
+    }
+</script>
+<div id="btn" class="lock" type="button">解锁</div>
+</body>
+</html>

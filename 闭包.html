@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //函数模式的闭包
+//    function f1() {
+//        var num = 10;
+//        //函数的声明
+//        function f2() {
+//            console.log(num);
+//        }
+//        //函数的调用
+//        f2();
+//    }
+//    f1();
+//    //对象模式的闭包
+//    function f3() {
+//        var num =20;
+//        var obj={
+//            age:num
+//        }
+//        console.log(obj.age);
+//    }
+//    f3();
+        //闭包案例
+        function f1() {
+            var num =10;
+            return function () {
+                num++;
+                return num;
+            }
+        }
+    var ff = f1();//f1 只被调用一次，
+    console.log(ff());//ff() 是函数  是function () { num++; return num;} 匿名函数的调用，有返回值
+
+    console.log(ff());
+    console.log(ff());
+</script>
+</body>
+</html>

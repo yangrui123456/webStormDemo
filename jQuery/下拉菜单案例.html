@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .wrap a{
+            display: block;
+            height: 30px;
+            width: 100px;
+            color:#ccc;
+            line-height: 30px;
+            text-decoration: none;
+        }
+        .wrap>ul>li{
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+        .wrap li ul{
+            display: none;
+            position: absolute;
+            top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+<ul>
+    <li >
+        <a href="#">一级菜单</a>
+        <ul>
+            <li>一级菜单</li>
+            <li>二级菜单</li>
+            <li>三级菜单</li>
+        </ul>
+    </li>
+    <li >
+        <a href="#">一级菜单</a>
+        <ul>
+            <li>一级菜单</li>
+            <li>二级菜单</li>
+            <li>三级菜单</li>
+        </ul>
+    </li>
+    <li >
+        <a href="#">一级菜单</a>
+        <ul>
+            <li>一级菜单</li>
+            <li>二级菜单</li>
+            <li>三级菜单</li>
+        </ul>
+    </li>
+</ul>
+</div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var $li = $("#wrap>ul>li");
+            $li.mouseenter(function () {
+                $(this).children("ul").stop().slideDown();
+            });
+            $li.mouseleave(function () {
+                $(this).children("ul").stop().slideUp();
+            });
+        });
+    </script>
+</body>
+</html>

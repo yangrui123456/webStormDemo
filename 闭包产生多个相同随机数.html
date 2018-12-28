@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //普通函数随机产生三个随机数
+//        function Random() {
+//            var num = parseInt(Math.random()*10+1);
+//            console.log(num);
+//        }
+        //闭包的方式产生三个相同的随机数
+        //闭包作用：优点和缺点都是缓存数据，没有及时释放数据
+        //想要缓存数据，就要把这个数据放在外层函数和里层函数中间味位置
+        function f1() {
+            var num = parseInt(Math.random()*10+1);
+            return function () {
+                return num;
+            }
+        }
+        var ff = f1();
+        console.log(ff());
+        console.log(ff());
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="./animate.css">
+    <script src="./velocity.min.js"></script>
+    <style>
+        /*.fade-enter,.fade-leave-to{
+            opacity:0
+        }
+        .fade-enter-active,.fade-leave-active{
+            transition:opacity 3s;
+        }*/
+       /* @keyframes bounce-in {
+            0%{
+                transform: scale(0);
+            }
+            50%{
+                transform: scale(1.5);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        .enter{
+            transform-origin: left center;
+            animation: bounce-in 1s;
+        }
+        .leave{
+            transform-origin: left center;
+            animation: bounce-in 1s  reverse;
+        }*/
+        .fade-enter,.fade-leave-to{
+            opacity: 0;
+        }
+        .fade-enter-active,.fade-leave-active{
+            transition: opacity 3s;
+        }
+
+    </style>
+</head>
+<body>
+<div id="root">
+    <!--<transition name="fade" enter-active-class="enter" leave-active-class="leave">-->
+    <!-- appear   appear-active-class="animated shake"第一次刷新也有有效果-->
+    <!--type="transition"  动画时长以transition为准-->
+    <!--duration="5000" 或者duratino={enter:5000,leave:10000}自定义入场和离开时长-->
+
+    <!--@before-enter 此动画钩子从隐藏到显示的过程中显示
+        @enter 开始显示的时候做的事，本文设置2秒过后绿色 done整个为回调函数
+        @after-enter 结束之后做的的事，本文设置4秒过后为黑色-->
+    <transition
+                name="fade"
+                @before-enter="handleBeforeEnter"
+                @enter="handleEnter"
+                @after-enter="handleAfterEnter"
+
+                appear
+                enter-active-class="animated shake fade-enter-active"
+                leave-active-class="animated zoomIn fade-leave-active"
+                appear-active-class="animated shake"
+    >
+    <div v-if="show">Hello World</div>
+    </transition>
+    <button @click="handleClick">change</button>
+</div>
+<script >
+        new Vue({
+            el:'#root',
+            data:{
+                show:true
+            },
+            methods:{
+                handleClick:function () {
+                    this.show =!this.show
+                },
+                handleBeforeEnter:function (el) {
+                    el.style.color = 'red'
+                },
+                handleEnter:function (el,done) {
+                    /*setTimeout(function () {
+                        el.style.color ='green';
+                    },2000)
+                    setTimeout(function () {
+                        done()
+                    },4000)*/
+                    Velocity(el,{
+                        opacity:1
+                    },{
+                        duration:2000,
+                        complete:done
+                    })
+                },
+                handleAfterEnter:function (el) {
+
+                    alert("动画结束");
+//                     el.style.color = '#000'
+                }
+            }
+        })
+
+</script>
+
+<!--使用transition做过渡渐隐渐现动画-->
+<!--
+<div id="root">
+    <transition name="fade">
+    <div v-if="show">hellow World</div>
+    </transition>
+    <button @click="handleClick">切换</button>
+</div>
+
+<script>
+    new Vue({
+        el:'#root',
+        data:{
+            show:true
+        },
+        methods:{
+            handleClick:function () {
+                this.show = !this.show
+            }
+        }
+    })
+</script>
+-->
+
+</body>
+</html>

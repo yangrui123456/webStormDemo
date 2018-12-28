@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body,html,.contain {
+            min-height: 100vh;
+        }
+        .contain {
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: blue;
+            height: 150px;
+        }
+        aside {
+            width: 100px;
+            background: red;
+        }
+        .content {
+            display: flex;
+            flex: auto;
+        }
+
+        acticle{
+            background: yellow;
+            flex: auto;
+        }
+        footer {
+            background: blue;
+            height: 50px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="contain">
+    <header>定高</header>
+    <div class="content">
+        <aside>定宽</aside>
+        <acticle>自适应</acticle>
+    </div>
+    <footer>定高</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function Person() {
+
+    }
+    Person.prototype.name="李磊";
+    Person.prototype.age = 20;
+    Person.prototype.eat = function () {
+        console.log("吃午饭");
+    }
+    var obj = {};
+    for(var key in Person.prototype){
+        obj[key] = Person.prototype[key];
+    }
+    console.log(obj.name,obj.age);
+    obj.eat();
+</script>
+</body>
+</html>

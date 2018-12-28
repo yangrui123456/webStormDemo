@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div>123</div>
+<div>123</div>
+<div>123</div>
+<p>456</p>
+<p>456</p>
+<p>456</p>
+<script>
+    var getTag = 10;
+    //沙箱
+    (function () {
+        function getTag(tagName) {
+            return document.getElementsByTagName(tagName);
+        }
+
+        var dvObjs = getTag("div");
+        for (var i = 0; i < dvObjs.length; i++) {
+            dvObjs[i].style.border = "1px solid red";
+        }
+        var pObjs = getTag("p");
+        for (var i = 0; i < pObjs.length; i++) {
+            pObjs[i].style.border = "1px solid pink";
+        }
+    }());
+    console.log(getTag);
+    //递归 求N个数字的和  比如：5  就是5+4+3+2+1；
+    function getSum(x) {
+        if (x == 1) {
+            return 1;
+        }
+        return x + getSum(x - 1);
+
+    }
+    console.log(getSum(5));
+</script>
+</body>
+</html>

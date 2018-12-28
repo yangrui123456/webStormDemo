@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background: moccasin;
+        }
+        #box2{
+            width: 400px;
+            height: 400px;
+            border: 2px solid red;
+            position: absolute;
+            left:50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" draggable="true"></div>
+    <div id="box2"></div>
+<script>
+    var box1 = document.querySelector("#box1");
+    var box2 = document.querySelector("#box2");
+    box1.ondargstart= function () {
+        this.style.background ="yellow";
+    }
+    box1.ondarg = function () {
+        console.log("drag");
+    }
+    box1.ondargend =function () {
+        console.log("end");
+    }
+    box1.ondargleave= function () {
+        console.log("离开");
+    }
+    box2.ondargenter= function () {
+        console.log("拖拽到目标中")
+    }
+    box2.ondargenter= function () {
+        console.log("拖拽到目标中")
+    }
+    box2.ondargleave= function () {
+        console.log("离开");
+    }
+    box2.ondragover = function(event) {
+
+    console.log("over。。");
+
+    event.preventDefault();  //只有阻止默认动作后,ondrop才会生效。
+
+    }
+    //拖拽、在目标元素上松开鼠标时 (要先阻止ondragover的默认动作)
+    box2.ondrop = function() {
+    console.log("松开鼠标了。。");  //只有阻止ondragover事件的默认动作后,该事件才会生效
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="common.js"></script>
+    <style>
+        #dv {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="dv"></div>
+<script>
+    function Student(name,age,sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+    //该写法需要加上构造器
+    Student.prototype = {
+//        constructor: Student,
+        height: '188',
+        weight: '44kg',
+        eat: function () {
+            console.log("吃好多好吃的");
+        },
+        study: function () {
+            console.log("学习使我快乐");
+        }
+    }
+    var stu = new Student("李磊","22","女");
+    stu.eat();
+    stu.study();
+    console.dir(Student);
+</script>
+</body>
+</html>

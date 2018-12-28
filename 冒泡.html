@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr =[77,39,2,67];
+        //sort排序
+        function myArray() {
+            //通过实例方法调用，实例方法里面是冒泡
+            this.mySort= function (arr) {
+                for (var i=0;i<arr.length-1;i++){
+                    for (var j=0;j<arr.length-1-i;j++){
+                        if (arr[j]>arr[j+1]){
+                            var stemp =arr[j];
+                            arr[j]+arr[j+1];
+                            arr[j+1]=stemp;
+                        }
+                    }
+                }
+            };
+        }
+        var myArray = new myArray();
+        myArray.mySort(arr);
+        console.log(arr);
+
+        function Student(name,sex) {
+            this.name=name;
+            this.sex=sex;
+        }
+        Student.prototype={
+            //手动修改构造器的指向
+            constructor:Student,
+            height:188,
+            weight:"55kg",
+            eat:function () {
+            console.log("每天吃饭，好开心啊");
+        },
+            study:function () {
+                console.log("每天学习，好开心啊");
+            }
+        };
+        var stu = new Student("李红",21);
+        stu.eat();
+        stu.study();
+    </script>
+    <script>
+    //产生n-m之间的随机数
+(function (window) {
+        function Random() {
+        }
+        Random.prototype.getRandom=function (min,max) {
+            return Math.floor(Math.random()*(max-min)+min);
+        }
+        window.Random = Random;
+})(window)
+    //为系统的原型对象添加方法，相当于在改变源码，
+    // 字符串中的倒序
+        var rm = new Random();
+        console.log(rm.getRandom(10,30));
+    </script>
+<script>
+//    String.prototype.myReverse=function () {
+//        for (i = this.length-1;i >= 0;i--){
+//            console.log(this[i]);
+//        }
+//    };
+//    var re = "abcdefg";
+//    re.myReverse();
+        //为字符串添加一个倒序的方法；
+//String.prototype.myReverse=function () {
+//    for (var i=this.length-1;i >=0;i--){
+//        console.log(this[i]);
+//    }
+//}
+//var str1 ="123456";
+//str1.myReverse();
+//    //为内置对象原型添加方法
+//        String.prototype.sayHi=function () {
+//            console.log(this+"哈哈，又变帅了");
+//        }
+//        var str ="杨大侠";
+//        str.sayHi();
+(function(win){
+    function Random() {
+    }
+    Random.prototype.getRandom=function (min,max) {
+        return Math.floor(Math.random()*(max-min)+min);
+    }
+
+    window.Random = Random;
+})(window)
+    var rm = new Random();
+    rm.getRandom(10,20);
+</script>
+</body>
+</html>

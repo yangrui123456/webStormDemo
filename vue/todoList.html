@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+<div id="root">{{fullName()}}{{age}}</div>
+<script>
+    var root = new Vue({
+        el:'#root',
+        data:{
+            firstName:"yang",
+            lastName:"rui",
+            age:20
+        },
+        methods:{
+            fullName: function () {
+                console.log('计算了一次');
+                return this.firstName + this.lastName;  //方法的调用必须在差值表达式加括号
+            }
+        }
+    });
+</script>
+
+<div id="app">
+        <input type="text" v-model="inputValue">
+        <button @click="handleClick">提交</button>
+        <ul>
+           <!-- <li v-for="item in list">{{item}}</li>-->
+            <todo-item v-for="(item,index) in list"
+                       :content="item"
+                       :index = 'index'
+                       :key = 'index'
+                       @delete="handleDelete"
+                        >{{item}}</todo-item>
+        </ul>
+    </div>
+<script>
+    
+    /*全局组件*/
+/*    Vue.component('TodoItem',{
+        props:['content'],
+        template:'<li>{{content}}</li>',
+    })*/
+
+var TodoItem ={
+    props:['content','index'],
+    template:'<li @click="handleItemclick">{{content}}</li>',
+    methods:{
+        handleItemclick:function () {
+            this.$emit('delete',this.index)
+        }
+    }
+}
+
+    var app = new Vue({
+        el:'#app',
+        components:{
+            'todo-item':TodoItem
+        },
+        data:{
+           list:[],
+           inputValue:''
+        },
+        methods:{
+            handleClick:function () {
+                this.list.push(this.inputValue)
+                this.inputValue = ''
+            },
+            handleDelete:function (index) {
+                this.list.splice(index,1)
+            }
+        }
+    })
+</script>
+</body>
+</html>

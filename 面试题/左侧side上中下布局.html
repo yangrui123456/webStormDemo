@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body,.contain{
+            min-height: 100vh;
+        }
+        .contain{
+            display: flex;
+        }
+        aside{
+            flex:none;
+            background-color: red;
+            width: 150px;
+        }
+        .content{
+            display: flex;
+            flex-direction: column;
+            flex:auto;
+        }
+        .content header{
+            background-color: blue;
+            height: 150px;
+        }
+        .content article{
+            flex:auto;
+            background-color: yellow;
+        }
+        .content footer{
+            background-color: blue;
+            height: 100px;
+        }
+        </style>
+</head>
+<body>
+<div class="contain">
+    <aside>ASIDE</aside>
+    <div class="content">
+        <header>HEADER</header>
+        <article>ARTICLE</article>
+        <footer>FOOTER</footer>
+    </div>
+</div>
+</body>
+</html>

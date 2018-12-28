@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">{{fullName}}</div>
+<script>
+    var root = new Vue({
+        el:'#root',
+        data:{
+            firstName:"yang",
+            lastName:"rui",
+            age:20
+        },
+       /* methods:{
+            fullName: function () {
+                console.log('计算了一次');
+                return this.firstName + this.lastName;
+            }
+        }*/
+        /*computed:{
+            fullName:function () {
+             return   this.firstName +" "+this.lastName;
+            }
+        }*/
+    });
+</script>
+</body>
+</html>

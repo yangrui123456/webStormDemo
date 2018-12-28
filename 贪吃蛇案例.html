@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .map {
+            width: 800px;
+            height: 600px;
+            background: #cccccc;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<!--画出地图-->
+<div class="map"></div>
+<script>
+    //自调用函数----食物的
+    ((function () {
+        var elements = [];//用来保存每个小方块食物的
+    //创建食物对象，有宽高颜色，横纵坐标，先定义构造函数，然后创建对象
+
+        function Food(x,y,width,height,color) {
+            this.width = width||20;
+            this.height = height||20;
+            //横纵坐标
+            this.x = x||0;
+            this.y = y||0;
+            this.color= color||"green";
+        }
+        //为原型添加初始化方法，为食物添加到map的初始化方法
+        Food.prototype.init=function (map) {
+            //先删除这个小食物，外部无法访问，只能内部删除
+            remove();
+            //创建div
+
+
+            var div = document.createElement("div");
+            //把div加到map
+            map.appendChild(div);
+            //设置div样式
+            div.style.width=this.width+"px";
+            div.style.height=this.height+"px";
+            div.style.backgroundColor=this.color;
+            //先脱离文档流
+            div.style.position="absolute";
+            //随机横纵坐标
+             this.x = parseInt(Math.random()*(map.offsetWidth/this.width))*this.width;
+            this.y = parseInt(Math.random()*(map.offsetHeight/this.height))*this.height;
+            div.style.left=this.x+"px";
+            div.style.top=this.y+"px";
+            //把div加入到数组elements中
+            elements.push(div);
+
+        };
+        //私有函数，----删除食物的
+        function remove() {
+            //elements中有这个食物
+            for (var i=0;i<elements.length;i++){
+                var ele = elements[i];
+                //找到这个元素的父级元素，然后从map中删除这个子元素
+                ele.parentNode.removeChild(ele);
+                //再次把elements这个子元素也删掉
+                elements.splice(i,1);
+            }
+        }
+
+        window.Food=Food;
+    })());
+
+    //自调用函数----小蛇
+    ((function () {
+        var elements=[];//存储小蛇的每个身体部分
+        //小蛇的构造函数
+        function Snake(width,height,direction) {
+            //小蛇的属性
+            this.width= width||20;
+            this.height=height||20;
+            //小蛇的身体
+            this.body= [
+                {x:3,y:2,color:"red"},//头
+                {x:2,y:2,color:"orange"},//身体
+                {x:1,y:2,color:"orange"}//身体
+            ];
+
+            //小蛇的默认方向
+            this.direction=direction||"right";
+        };
+        //为原型添加方法---小蛇初始化的方法
+        Snake.prototype.init= function (map) {
+            //循环遍历body里面的元素，创建div
+            for(var i=0;i<this.body.length;i++){
+                var obj = this.body[i];
+                //创建div
+                var div = document.createElement("div");
+                //把div加入地图
+                map.appendChild(div);
+                //设置div样式
+                div.style.position="absolute";
+                div.style.width=this.width+"px";
+                div.style.height=this.height+"px";
+                div.style.left=obj.x*this.width+"px";
+                div.style.top=obj.y*this.height+"px";
+                div.style.backgroundColor =obj.color;
+                //把div加入到elements数据中---目的是为了以后删除
+                elements.push(div);
+
+            }
+        };
+        
+        //为原型添加方法，让小蛇动起来 第九课
+        Snake.prototype.move= function (food,map) {
+          //改变小蛇身体的坐标位置
+            var i =  this.body.length-1; //2
+            for (;i>0;i--){
+                this.body[i].x = this.body[i-1].x;
+                this.body[i].y = this.body[i-1].y;
+            }
+            //判断方向---改变小蛇头部的坐标位置
+            switch (this.direction){
+                case "right":
+                    this.body[0].x +=1;
+                    break;
+                case  "left":
+                    this.body[0].x -=1;
+                    break;
+                case  "top":
+                    this.body[0].x -=1;
+                    break;
+                case  "bottom":
+                    this.body[0].x +=1;
+                    break;
+            }
+        };
+        //把Snake暴露给window
+        window.Snake =Snake;
+    })());
+
+
+
+    //外部测试代码
+    var fd =new Food();
+    fd.init(document.querySelector(".map"));
+    console.log(fd.x+"---"+fd.y);
+    console.log(fd.width);
+    var sn = new Snake();
+    sn.init(document.querySelector(".map"));
+</script>
+</body>
+</html>;

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            height: 200px;
+            margin-bottom: 10px;
+            background-color: #ccc;
+            display: none;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        //JQuery入口函数第二种写法  $(function(){console.log("入口函数")};
+        //js入口函数   window.onload=function(){};
+        //入口函数第一种写法  太长了。。。
+        $(document).ready(function () {
+            //注册事件，on去掉是一个方法
+            $("#btn1").click(function () {
+                $("div").show(1000);
+            });
+            //隐式迭代：会偷偷的遍历，jQuery会自动遍历，无需我们遍历
+            $("#btn2").click(function () {
+                $("div").text("我是内容");
+//                $("div").css("backgroundColor","purple");
+            });
+        });
+//        $(function () {
+//          var li =   document.getElementsByTagName("li");
+//            for (var i=0;i<li.length;i++){
+//                if (i%2==0){
+//                    li[i].style.backgroundColor="red";
+//                }else {
+//                     li[i].style.backgroundColor ="pink";
+//                }
+//            }
+//        })
+
+        console.log(typeof $);
+    </script>
+</head>
+<body>
+<input type="button" value="展示" id="btn1">
+<input type="button" value="我是内容" id="btn2">
+<div class="green"></div>
+<div id="pink"></div>
+<div></div>
+<li >123</li>
+<li >123</li>
+<li>123</li>
+</body>
+</html>

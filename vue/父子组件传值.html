@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+<!--动态组件和v-once指令 v-once创建完一次后就放到内存里了，下次再点击就不需要重新创建了，节省了内存-->
+<!--<div id="root">
+    <component :is="type"></component>
+    &lt;!&ndash;<child-one v-if="type === 'child-one'"></child-one>
+    <child-two v-if="type === 'child-two'"></child-two>&ndash;&gt;
+    <button @click="handleClick">change</button>
+</div>
+<script>
+    Vue.component('child-one',{
+        template:'<div v-once>child-one</div>'
+    })
+    Vue.component('child-two',{
+        template:'<div v-once>child-two</div>'
+    })
+    new Vue({
+        el:'#root',
+        data:{
+          type:'child-one'
+        },
+        methods:{
+            handleClick:function () {
+                this.type = this.type ==='child-one'?'child-two':'child-one';
+            }
+        }
+    })
+</script>-->
+<!--Vue中作用域插槽-->
+<!--<div id="root">
+    <child>
+        <template slot-scope="props">
+            <h1>{{props.item}}</h1>
+        </template>
+    </child>
+</div>
+<script>
+    Vue.component('child',{
+        data:function () {
+          return {
+              list:[1,2,3,4,5]
+          }
+        },
+        template:'<div>' +
+        '<ul>' +
+        '<slot v-for="item of list" :item=item></slot>' +
+        '</ul>' +
+        '</div>'
+    })
+    new Vue({
+        el:'#root'
+    })
+
+</script>-->
+<!--插槽 slot-->
+<!--<div id="root">
+    <body_content>
+    <div slot="header">header</div>
+    <div slot="footer">footer</div>
+    </body_content>
+</div>
+<script>
+    Vue.component('body_content',{
+        template:'<div>' +
+                    '<slot name="header"></slot>' + /*具名插槽可以有多个*/
+                    '<div >content</div>' +
+                    '<slot name="footer"></slot>' +
+                 '</div>'
+    })
+  var vm =  new Vue({
+        el:'#root',
+    })
+</script>-->
+<!--非父子组件传值（bus/总线/发布订阅模式/观察者模式）-->
+<!--<div id="root">
+    <child content="Dell"></child>
+    <child content="Lell"></child>
+</div>
+<script>
+    Vue.prototype.bus = new Vue()
+    Vue.component('child',{
+        data:function () {
+            return{
+               selfContent : this.content
+            }
+        },
+        props:{
+            content:String
+        },
+        template:'<div @click="handleClick">{{selfContent}}</div>',
+        methods:{
+            handleClick:function () {
+                this.bus.$emit('change',this.selfContent)
+            }
+        },
+        mounted:function (msg) {
+                var this_ = this
+            this_.bus.$on('change',function (msg) {
+                this_.selfContent = msg;
+            })
+        }
+    })
+var root = new Vue({
+    el:'#root'
+})
+</script>-->
+<!--给组件绑定原生事件 在事件前面加.native 就可以了-->
+<!--<div id="root" about="">
+    <child @click.native="handleClick"></child>
+</div>
+<script>
+    Vue.component('child',{
+        template:'<div>Child</div>'
+    })
+    var vm = new Vue({
+        el:'#root',
+        methods:{
+            handleClick:function () {
+                alert('hhh');
+            }
+        }
+
+    })
+</script>-->
+<!-- 组件参数校验与非props特性-->
+<!--<div id="root">
+    <child :content="123456"></child>
+</div>
+<script>
+    Vue.component('child', {
+        props: {
+            content: {
+                type: [Number,String],
+                /*required: false,*/ /*content为false的时候父组件<child>可不必有content*/
+
+                /*default: 'default value',*/ /*content没有值的时候默认为这个值*/
+
+                /* validator: function (value) {
+
+                    return (value.length  > 1);
+                    /!*content的长度必须大于5，不然会报错*!/
+                }*/
+            }
+        },
+        template: '<div>{{content}}</div>'
+    })
+
+    var vm = new Vue({
+        el: '#root',
+
+    })
+
+</script>-->
+<!--父子组件传值-->
+<!--<div id="app">
+    <counter :count='0' @inc="handleIncrease"></counter>
+    <counter :count='1' @inc="handleIncrease"></counter>
+    <div>{{total}}</div>
+</div>
+<script>
+    var counter = {
+        props:['count'],
+        data:function () {
+         return  {
+             number:this.count
+         }
+        },
+        template:'<div @click="handleClick">{{number}}</div>',
+        methods:{
+            handleClick:function () {
+                /*this.number=this.number +2;
+                this.$emit('inc',2);*/
+                this.number++;
+                this.$emit('inc',1);
+            }
+        }
+    }
+
+    var vm = new Vue({
+        el:'#app',
+        components:{
+            counter:counter
+        },
+        data:{
+            total: 1
+        },
+        methods:{
+            handleIncrease:function (step) {
+                /*alert(step)*/;   /*step:步长*/
+                this.total += step;
+            }
+        }
+    })
+</script>-->
+</body>
+</html>

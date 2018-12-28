@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./jquery-1.12.4.js"></script>
+</head>
+<body>
+    <script>
+       $(function () {
+           //单次事件
+           $("p").one('click',function () {
+               alert($(this).text());
+           });
+           $('#button1').click(function () {
+               alert("按钮一被点击了");
+           });
+
+          $('#button2').click(function () {
+              alert("按钮二被点击了")
+              //事件的触发
+              $('#button1').trigger('click');
+          });
+
+           $('#div').hover(function () {
+               $(this).css("color","red");
+           },function () {
+               $(this).css("color","blue");
+           })
+        $('#img1').toggle(function () {
+            //第一次点击显示第二张图片
+            $(this).attr("src","2.jpg");
+        },function () {
+            //第一次点击显示第三张图片
+            $(this).attr("src","3.jpg");
+        });
+       });
+    </script>
+    <p>aaa</p>
+    <p>bbb</p>
+    <div id="div">你好啊</div>
+<input type="button" value="按钮一" id="button1">
+<input type="button" value="按钮二" id="button2">
+<img id="img1" src="1.jpg">
+<img id="img2" src="2.jpg">
+</body>
+</html>

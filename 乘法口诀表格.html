@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//        document.write("<table border='1' cellpadding='0' cellspacing='0'> ");
+//        for (var i=1;i<=9;i++){
+//            document.write("<tr>");
+//            for (var j=1;j<=i;j++){
+//                document.write("<td>")
+//                document.write(j+"*"+i+"="+i*j);
+//                document.write("</td>")
+//            }
+//            document.write("<br/>");
+//        }
+//        document.write("</tr>");
+//        document.write("</table>");
+    </script>
+<script>
+//    //斐波那契数列的值
+//    var num1 =1;
+//    var num2 =1;
+//    var sum =0;
+//    for (var i=3;i<=12;i++){
+//        sum = num1+num2;
+//        num1=num2;
+//        num2=sum;
+//    }
+//    console.log(sum);
+//    //能被7整除的第一个数
+//    for (var v=100;v<=200;v++){
+//        if (v%7==0){
+//            console.log(v);
+//           break;
+//        }
+//    }
+    //1-100的相加个位是3的不要，
+//        var sum = 0;
+//    for (var i=1;i<=10;i++){
+//        if (i%10 == 3){
+//            continue;//结果为true跳出后再继续执行
+//        }
+//        sum +=i;
+//    }
+//    console.log(sum);
+//    //最大值
+//    var arr =[1,3,5,7,9,44,55,34,55,77];
+//    var max = arr[0];
+//    for (var i=0;i<arr.length;i++){
+//        if (max<arr[i]){
+//            max=arr[i];
+//        }
+//    }
+//    console.log("最大值："+max);
+//    //正序
+//    var arr2 =[1,3,5,7,9,44,55,34,55,77];
+//    for (var i=0;i<arr2.length;i++){
+//        console.log(arr2[i]);
+//    }
+//    倒序
+//    var arr3 =[1,3,5,7,9,44,55,34,55,77];
+//    for (var i=arr3.length-1;i>=0;i--){
+//        console.log(arr3[i]);
+//    }
+//  在集合后面加竖线
+//    var arr4 = ["铁球","狗蛋","李白","二花","嘎子"];
+//    var str="";
+
+//    for (i=0;i<arr4.length-1;i++){
+//        str += arr4[i]+"|";
+//    }
+//    console.log(str+arr4[arr4.length-1]);
+//    在集合前面加竖线
+//    var arr4 = ["铁球","狗蛋","李白","二花","嘎子"];
+//    var str ="";
+//    for (var i=1;i<arr4.length;i++){
+//        str +="|"+arr4[i];
+//    }
+//    console.log(arr4[0]+str);
+//    改变数组长度
+//    var arr = [1,0,3,5,7,9,0,55,0,55];
+//    var newArr ="";
+//    for (var i=0;i<arr.length;i++){
+//        if (arr[i]!=0){
+//            newArr[newArr.length]= arr[i];
+//        }
+//    }
+//    console.log(newArr);
+//    翻转
+//    var arr =[1,3,5,7,9,44];
+//    for (i=0;i<arr.length/2;i++){
+//        var temp =arr[i];
+//        arr[i]=arr[arr.length-1-i];
+//        arr[arr.length-1-i]=temp;
+//    }
+//    console.log(arr);
+    //输入班级人数，求和，最大，最小，平均值；
+     var perCount = parseInt(prompt("请输入班级人数"));
+        var perScores =[];
+    for (var i=0;i<perCount;i++){
+        perScores[perScores.length]=Number(prompt("请输入第"+(1+i)+"个人的成绩"));
+    }
+    console.log(perScores);
+    var sum =0;
+    var max =perScores[0];
+    var min =perScores[0];
+    var avg = 0;
+        for (var i=0;i<perScores.length;i++){
+            sum += perScores[i];
+
+        if (max <perScores[i]){
+            max =perScores[i];
+        }
+        if (min>perScores[i]){
+            min =perScores[i];
+        }
+        svg =sum/perScores.length;
+        }
+    console.log(sum);
+    console.log(max);
+    console.log(min);
+    console.log(svg);
+</script>
+</body>
+</html>

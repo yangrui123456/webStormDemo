@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .basic {
+            font-size: 20px;
+            color: red;
+        }
+
+        .bigger {
+            font-size: 28px;
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="button" value="添加basic类" >
+    <input type="button" value="添加bigger类">
+    <input type="button" value="移除bigger类">
+    <input type="button" value="判断bigger类">
+<ul>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+</ul>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        $("input").eq(0).click(function () {
+            $("li").addClass("basic");
+        });
+        $("input").eq(1).click(function () {
+            $("li").addClass("bigger");
+        });
+        $("input").eq(2).click(function () {
+            $("li").removeClass("bigger");
+        });
+        $("input").eq(3).click(function () {
+
+            console.log($("li").hasClass("bigger"));
+        });
+//        $(".tab-item").mouseenter(function () {
+//            $(".active").addClass("active").siblings().removeClass("active");
+//        });
+//        var ids = $(this).index();
+//        $(".main").eq(ids).addClass("selected").siblings().removeClass("selected");
+//        });
+        $(".dddd a").click(function () {
+            var href = $(this).attr("href");
+            $("#image").attr("src",href);
+        });
+        var title = $(this).attr("title");
+            $("#dex").text(title);
+    });
+</script>
+</body>
+</html>

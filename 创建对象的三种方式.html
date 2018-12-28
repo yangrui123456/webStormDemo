@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        span::before{
+            content: "小可爱";
+        }
+        span::after{
+            content: "我是你爸爸";
+        }
+
+    </style>
+</head>
+<body>
+        <span>你好啊！</span>
+<script>
+    function Person(name, sex, age) {
+        this.name = name;
+        this.sex = sex;
+        this.age = age;
+        this.paly = function () {
+            console.log("天天玩手机");
+        }
+    }
+    var person2 = new Person("李磊", "男", 29);
+    console.log(person2 instanceof Person);//判断对象是否是person类型的
+</script>
+<script>
+    //    定义
+    function consoleSum() {
+        var num = 1;
+        var num2 = 2;
+        var sum = num + num2;
+        console.log(sum);
+    }
+    //    调用
+    consoleSum();
+    function isMax() {
+        var num3 = 50;
+        var num4 = 70;
+        console.log(num3 > num4 ? num3 : num4);
+    }
+    isMax();
+    //    求1-100所有的数的和
+    function sum1() {
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        console.log(sum);
+    }
+    sum1();
+    //求1-100偶数的和；
+    function evenSum() {
+        var sum = 0;
+        for (var i=1;i<=100;i++){
+            if (i%2==0){
+                sum+=i;
+            }
+
+        }
+        console.log(sum);
+    }
+    evenSum();
+    //求数组的和
+    function arraySum() {
+        var sum = 0;
+        var arr =[1,3,55,6,88,23,5]
+        for(var i=0;i<arr.length;i++){
+            sum +=arr[i];
+        }
+        console.log(sum);
+    }
+    arraySum();
+//    function consoleSum(x,y) {
+//        var sum =  x + y;
+//        console.log(sum);
+//    }
+//    var num1=parseInt(prompt("输入第一个数字")
+//    );
+//    var num2 =parseInt(prompt("输入第二个数字"));
+//    consoleSum(num1,num2);
+</script>
+<script>
+    function acc(x,y) {
+        return x+y;
+    }
+    var result = acc(12,23);
+    console.log(result+10);
+//    工厂模式
+    function createObject(name,age) {
+        var per = new Object();
+        per.name = name;
+        per.age = age;
+        per.sayHi=function () {
+            console.log("您好啊")
+        }
+        return per;
+    }
+    createObject("李磊",20);
+    //自定义构构造函数
+    function Person(name,age,sex) {
+        this.name= name;
+        this.age =age;
+        this.sex = sex;
+        this.eat=function () {
+            console.log("吃饭吃零食吃烤鸡翅")
+        };
+    };
+   var per2 =  new Person("梁小玲",19,"女");
+    per2.eat();
+    console.log(per2.eat());
+</script>
+<script>
+    function Person(name,age) {
+        this.name =name ;
+        this.age = age;
+    }
+    //通过原型来添加方法，解决数据共享的问题，节省内存空间
+    Person.prototype.eat = function () {
+        console.log("吃烤鸡");
+    }
+    var per1 = new Person("小红",18);
+    var per2 = new Person("小明",20);
+        console.log(per1.eat==per2.eat);
+    console.dir(per1);
+    console.dir(per2);
+    console.log(per1.__proto__==per2.prototype);
+</script>
+<script>
+    function Student(name,sex,age) {
+        this.name=name;
+        this.sex=sex;
+        this.age=age;
+    }
+//    Student.prototype.height="180mm";
+//    Student.prototype.Weight = "44kg";
+//    Student.eat=function () {
+//        console.log("吃西瓜")
+//    }
+//    Student.study=function () {
+//        console.log("写作文");
+//
+//    }
+//   var stu=  new Student("李磊","男",29);
+//    console.dir(Student);
+//    console.dir(stu);
+Student.prototype ={
+    //手动修改构造器的指向
+    constructor:Student,
+    heigth:"188mm",
+    weight:"44kg",
+    study:function () {
+        console.log("热爱学习");
+    },
+    eat:function () {
+        console.log("吃炖猪蹄");
+    }
+}
+    var stu1 = new Student("小风","男",20);
+    stu1.eat();
+    console.dir(stu1);
+    console.dir(Student);
+</script>
+<script>
+    function Animal(name,sex) {
+        this.name=name;
+        this.sex=sex;
+    }
+    Animal.prototype.eat=function () {
+        console.log("吃雪糕");
+        this.wan();
+    };
+    Animal.prototype.wan=function () {
+        console.log("抓迷藏");
+        this.sleep();
+    }
+    Animal.prototype.sleep=function () {
+        console.log("睡觉");
+    };
+    var xdw = new Animal("小可爱","男");
+    xdw.eat();
+</script>
+<script>
+    function Wuman(name,age) {
+        this.name=name;
+        this.age=age;
+        this.eat=function () {
+            console.log("构造函数中的吃")
+        }  
+    }
+    Wuman.prototype.age="28";
+    Wuman.eat =function () {
+        cosole.log("原型中的吃");
+    }
+   var wu=  new Wuman("小小",27);
+    wu.eat();//文中有两个吃，先在实例对象所指向的构造函数中找，找不到在再到原型中找，否则报错。
+</script>
+<script>
+    //倒序
+    String.prototype.daoxu=function(){
+        for(var i=this.length-1;i>=0;i--){
+            console.log(this[i]);
+        }
+    }
+    var d = "123456";
+    d.daoxu();
+    //求n到m的和
+    function everySum(n,m) {
+        var sum =0;
+        for(var i=n;i<=m;i++){
+            sum +=i;
+        }
+        return sum;
+    }
+    console.log(everySum(1,100));
+
+</script>
+<script>
+    //递归
+    var i =0;
+    function f1() {
+        i++;
+        if (i<5){
+            f1();
+        }
+        console.log("123");
+    }
+    console.log(f1(5));
+    //求到某个数的和
+    function getSum(n) {
+        if (n ==1){
+            return 1;
+        }
+        return n+getSum(n-1);
+    }
+    console.log(getSum(5));
+</script>
+<script>
+    //字面量构造函数
+    var obj= {
+        sex:"男",
+        age:20,
+        sayHi:function () {
+            console.log("你好吗！");
+        }
+    };
+
+    //调用系统的构造函数创建对象
+    var obj2 = new Object();
+    obj2.sex = "男";
+    obj2.age = 20;
+    obj2.sayHi=function () {
+        console.log("你好啊！");
+    };
+
+    //自定义构造函数
+   function obj3() {
+       this.age = age;
+       this.sex = sex;
+       this.sayHi=function () {
+           console.log("我很好啊");
+       }
+   };
+    //通过原型添加属性和方法
+        function Animal2(age,sex) {
+            this.age = age;
+            this.sex = sex;
+        }
+    Animal2.prototype.color = "红色";
+    Animal2.prototype.eat= function () {
+            console.log("吃馒头咸菜");
+    };
+    //调用函数
+    function Dog(age,sex,name) {
+        Animal2.call(this,sex,age);
+        this.name = name;
+    }
+    //改变原型指向，为了继承方法
+    Dog.prototype = new Animal2();
+    var dog = new Dog(12,"女","艾克");
+    console.log(dog.age);
+    console.log(dog.sex );
+    console.log(dog.name);
+    console.log(dog.color);
+    //调用方法
+    dog.eat();
+</script>
+
+<script>
+    //改变原型指向
+        function f1(x,y) {
+            console.log((x+y)+"----指向"+this);
+            return "这是函数的返回值";
+        }
+            var r1 = f1.apply(null,[100,200]);//this指向window
+            var r2 = f1.call(null,100,200);
+        var obj={
+            sex :"男",
+            age : 20
+        }
+       var r3 = f1.apply(obj, [100,200]);
+        var r4 = f1.call(obj, 100,200);
+        console.log(r3);
+        console.log(r4);
+    //bind的使用
+        function Person(age) {
+            this.age = age;
+        }
+        Person.prototype.paly=function () {
+            console.log(this+"----->"+this.age);
+        };
+        function Student(age){
+            this.age = age;
+        }
+        var per = new Person(10);
+        var stu = new Student(20);
+        //复制一份
+        var ff = per.paly.bind(stu);
+        ff();
+</script>
+
+</body>
+</html>

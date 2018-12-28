@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="vue.js"></script>
+
+</head>
+<body>
+<div id="app2">
+    <span v-bind:title="message">
+        鼠标悬停几秒查看此处动态绑定事件
+    </span>
+</div>
+
+<div id="app3">
+    <p v-if='seen'>现在你看得到我了</p>
+</div>
+<div id="app4">
+    <ol>
+        <li v-for="todo in todos">{{ todo.text }}</li>
+    </ol>
+</div>
+<div id="app5">
+    <p>{{message}}</p>
+    <button v-on:click="reverseMessage">逆转消息</button>
+</div>
+<div id="app6">
+    <p>{{message}}</p>
+    <input v-model="message">
+</div>
+<div id="app7">
+    <ol>
+        <todo-item
+                v-for="item in groceryList"
+                v-bind:todo="item"
+                v-bind:key="item.id">
+
+        </todo-item>
+    </ol>
+</div>
+
+<script>
+    var app2 = new Vue({
+        el: '#app2',
+        data: {
+            message: '页面加载于' + new Date().toLocaleString()
+
+        }
+
+    })
+    app2.message = '新消息'
+    var app3 = new Vue({
+        el: '#app3',
+        data: {
+            seen: true
+        }
+    })
+    app3.seen = false
+    var app4 = new Vue({
+        el: '#app4',
+        data: {
+            todos: [
+                {text: '学习使我快乐'},
+                {text: '做人呢，开心最重要'},
+                {text: '瞎说什么大实话'}
+            ]
+        }
+    })
+    app4.todos.push({text: '新项目'})
+    var app5 = new Vue({
+        el: '#app5',
+        data: {
+            message: 'Hello World'
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    })
+    var app6 = new Vue({
+        el: "#app6",
+        data: {
+            message: '你好啊'
+        }
+    })
+    Vue.component('todo-item', {
+        props: ['todo'],
+        template: '<li>{{ todo.text }}</li>'
+    })
+    var app7 = new Vue({
+        el: '#app7',
+        data: {
+            groceryList: [
+                {id: 0, text: '奶油'},
+                {id: 1, text: '蛋糕'},
+                {id: 2, text: '车厘子'}
+            ]
+        }
+    })
+    var data ={a:1}
+    var vm = new Vued({
+        data:data
+    })
+    vm.data = data.a
+    vm.a =2
+    data.a
+</script>
+</body>
+</html>

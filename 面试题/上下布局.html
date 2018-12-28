@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        html,body,.content{
+            min-height: 100vh;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            height: 100px;
+            width: 100%;
+            position: fixed;
+            background: blue;
+
+        }
+        acticle {
+            padding-top: 100px;
+            background: yellow;
+            flex: auto;
+            height: 1500px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <header>位置固定</header>
+    <acticle>自适应</acticle>
+</div>
+</body>
+</html>
